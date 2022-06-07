@@ -126,7 +126,8 @@ def test_export(mock_batch, mock_docker_my_project_serve, monkeypatch,
 
     load_tasks_mock.assert_called_once_with(cmdr=commander_mock.__enter__(),
                                             name='train',
-                                            mode=mode)
+                                            mode=mode,
+                                            lazy_import=False)
 
     submitted = index_submit_job_by_task_name(
         boto3_mock.submit_job.call_args_list)
